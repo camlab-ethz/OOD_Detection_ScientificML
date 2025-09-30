@@ -247,3 +247,16 @@ For running other 1D experiments, please use the provided Jupyter notebooks:
 
 - `1d_notebooks/notebook_1d.ipynb`
 
+## Citation
+
+```bibtex
+@misc{ood_certificate,
+      title={Towards a Certificate of Trust: Task-Aware OOD Detection for Scientific AI}, 
+      author={Bogdan Raonić and Siddhartha Mishra and Samuel Lanthaler},
+      year={2025},
+      eprint={2509.25080},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2509.25080}, 
+}
+```
