@@ -2,7 +2,7 @@
 
 ![image info](visualization/OOD_DETECTION_MAIN_FIGURE.png)
 
-This repository contains implementations of the paper [Towards a Certificate of Trust: Task-Aware OOD Detection for Scientific AI](https://arxiv.org/abs/2509.02508).  
+This repository contains implementations of the paper [Towards a Certificate of Trust: Task-Aware OOD Detection for Scientific AI](https://arxiv.org/abs/2509.25080).  
 
 The **GenCFD** and **CNO** models used in this paper are adapted from the repositories:
 
