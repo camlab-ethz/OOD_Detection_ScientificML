@@ -10,7 +10,7 @@ import argparse
 from regression.UNetModule import UNetModel_pl
 from regression.FNOModule import FNOModel_pl
 from regression.CNOModule_pl import CNOModel_pl
-from regression.ViTModulev2 import MultiVit3_pl, MultiVit2_pl, Vit3_pl
+from regression.ViTModulev2 import Vit3_pl
 
 from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor
@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
   device = config.device
   tag = config.tag
-  p = int(config.loss)
+  p = int(config.loss) if "loss" in vars(config) else 1
   which_data = config.which_data
   
   workdir = f"trained_models" #Defualt, change of needed
