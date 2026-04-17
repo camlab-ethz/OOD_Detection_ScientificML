@@ -2,7 +2,7 @@
 
 ![image info](visualization/OOD_DETECTION_MAIN_FIGURE.png)
 
-This repository contains implementations of the paper "Towards a Certificate of Trust: Task-Aware OOD Detection for Scientific AI".  
+This repository contains implementations of the paper [Towards a Certificate of Trust: Task-Aware OOD Detection for Scientific AI](https://arxiv.org/abs/2509.25080).  
 
 The **GenCFD** and **CNO** models used in this paper are adapted from the repositories:
 
@@ -26,7 +26,7 @@ Install dependencies (example):
 
 ## 🗂️ Datasets
 
-- The **Wave Equation** datasets can be generated using the Jupyter notebook:  
+- The **Wave Equation** datasets can be downloaded from [this link](https://zenodo.org/records/17201388?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjkyYjRiOTQwLTliNTUtNGE3YS05MjU1LWRjMTljMzA0NmU3MSIsImRhdGEiOnt9LCJyYW5kb20iOiIyZTg1MDUxMDYwYTU3NWViYzQzZjlmM2VkMWY4MjdmNSJ9.y12swFR_R2DBj5Ezdp1TsG5-YpO1kXOlkLI76twM0lnKZ2IrCBws5B_R3CUfL_b9dDDN7QGkEAF1po6KaoPbMg), or can be generated using the Jupyter notebook:  
   `utils/generate_wave_data/generate_wave.ipynb`
 
 - The original **MERRA-2** datasets can be found on the [NASA website](https://gmao.gsfc.nasa.gov/gmao-products/merra-2/data-access_merra-2/)
@@ -247,3 +247,16 @@ For running other 1D experiments, please use the provided Jupyter notebooks:
 
 - `1d_notebooks/notebook_1d.ipynb`
 
+## Citation
+
+```bibtex
+@misc{ood_certificate,
+      title={Towards a Certificate of Trust: Task-Aware OOD Detection for Scientific AI}, 
+      author={Bogdan Raonić and Siddhartha Mishra and Samuel Lanthaler},
+      year={2025},
+      eprint={2509.25080},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2509.25080}, 
+}
+```
