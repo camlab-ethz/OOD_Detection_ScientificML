@@ -19,7 +19,7 @@ While the code is also available in this project, please note that the **origina
 - Python 3.8+
 - PyTorch + PyTorch Lightning
 - [Weights & Biases (wandb)](https://wandb.ai/) account (optional, for logging)
-
+ 
 Install dependencies (example):
 
     pip install -r requirements.txt
