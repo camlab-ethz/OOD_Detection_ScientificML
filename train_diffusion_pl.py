@@ -38,6 +38,7 @@ if __name__ == "__main__":
   is_exploding = config.is_exploding
   sigma =  config.sigma
   ema_param = config.ema_param
+  is_wandb = getattr(config, "is_wandb", True)
 
   if is_exploding:
     marginal_prob_std_fn = functools.partial(marginal_prob_std_2, sigma_min = 0.001, sigma_max=sigma, device = device)
@@ -86,8 +87,8 @@ if __name__ == "__main__":
                                     config_train = config_train,
                                     config_arch = config_arch,
                                     )
-
-  run = wandb.init(entity="your_wandb", 
+  if is_wandb:
+    run = wandb.init(entity="your_wandb", 
                   project=config.wandb_project_name, 
                   name=tag + config.wandb_run_name, 
                   config=config)

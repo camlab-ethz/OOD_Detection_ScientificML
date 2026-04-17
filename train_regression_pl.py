@@ -44,6 +44,7 @@ if __name__ == "__main__":
   which_data = config.which_data
   
   workdir = f"trained_models" #Defualt, change of needed
+  is_wandb = getattr(config, "is_wandb", True)
 
   if not os.path.exists(workdir):
     os.makedirs(workdir)
@@ -79,8 +80,8 @@ if __name__ == "__main__":
                     loss_fn = loss,
                     config_train = config_train,
                     config_arch = config_arch)
-  
-  run = wandb.init(entity="your_wandb", 
+  if is_wandb:
+    run = wandb.init(entity="your_wandb", 
                   project=config.wandb_project_name, 
                   name=tag + config.wandb_run_name, 
                   config=config)

@@ -63,6 +63,7 @@ class GeneralModel_pl(pl.LightningModule):
         self.time_step_size = config_train["time_step_size"]
         self.fix_input_to_time_step = config_train["fix_input_to_time_step"]
         self.allowed_transitions = config_train["allowed_transitions"]
+        self.is_wandb = config_train.get("is_wandb", True)
 
         self._curr_epoch = -1
         self._cur_step   = 0
@@ -201,7 +202,7 @@ class GeneralModel_pl(pl.LightningModule):
             if batch_idx >= 10:
                 loss_log = self.avg_loss/self.num_train_items
                 dict_log['train/loss_avg'] =  loss_log
-            if self.global_rank ==0:
+            if self.is_wandb and self.global_rank ==0:
                 wandb.log(dict_log, step=self._cur_step)
 
             self.avg_loss = 0.0
@@ -236,7 +237,7 @@ class GeneralModel_pl(pl.LightningModule):
             #    batch_size_plot = 20
 
             fig = plot_prediction(batch_size_plot, (1,1), input_batch[:batch_size_plot], output_batch[:batch_size_plot], output_pred_batch[:batch_size_plot], f"{self._workdir}/train_plot_ep_{self._curr_epoch}.png")
-            if self.global_rank == 0:
+            if self.is_wandb and self.global_rank == 0:
                 wandb.log({f"fig_train/train_plot_ep_{self._curr_epoch+1}": wandb.Image(fig)})
             plt.close()
             #self.best_model_ema.to("cpu")
@@ -298,7 +299,7 @@ class GeneralModel_pl(pl.LightningModule):
         
         self.log("best_val_loss",self.best_val_loss,on_step=False, on_epoch=True,sync_dist=True)
         
-        if self.global_rank == 0:
+        if self.is_wandb and self.global_rank == 0:
             wandb.log({'val/best_val_loss': self.best_val_loss, 'val/mean_val_all': mean_loss, 'val/med_val_all': median_loss, 'val/med_val_last':median_loss_last, 'val/mean_val_last':mean_loss_last, 'val/mean_val_first':mean_loss_first, 'val/median_val_first':median_loss_first}, step=self._cur_step)
         
         return {"val_loss": mean_loss,} 

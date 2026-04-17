@@ -36,6 +36,8 @@
     "wandb_run_name": "_pXandY",
     "skip": true,
     "wandb_project_name": "project_name",
+    "is_wandb": false,
+    
     "config_arch": "configs/architectures/config_unet_small.json",
     "workdir": "/path_to_workdir/"
 }

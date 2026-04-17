@@ -18,7 +18,8 @@ def train(model,
         loss =  nn.MSELoss(), 
         dir_path = "",
         tag = "",
-        device = "cpu"):
+        device = "cpu",
+        is_wandb = True):
 
     tqdm_epoch = tqdm.trange(epochs)
     best_model_testing_error = 1000
@@ -67,11 +68,13 @@ def train(model,
 
         dict_wandb['train/best_val_loss'] =  best_model_testing_error
         dict_wandb['train/epoch'] = epoch + 1
-        wandb.log(dict_wandb, step = epoch + 1)
+        if is_wandb:
+            wandb.log(dict_wandb, step = epoch + 1)
 
         if epoch%50 == 0:
             fig = plot_prediction(4, (1,1), input_batch, output_batch, output_pred_batch, f"{dir_path}/train_plot_ep_{epoch}.png")
-            wandb.log({f"fig_train/train_plot_ep_{epoch+1}": wandb.Image(fig)})
+            if is_wandb:
+                wandb.log({f"fig_train/train_plot_ep_{epoch+1}": wandb.Image(fig)})
             plt.close()
 
         tqdm_epoch.set_description('Train: {:.5f} Val: {:.5f}'.format(train_mse, test_relative_l2))

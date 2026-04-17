@@ -29,5 +29,6 @@
     "config_arch": "configs/architectures/config_cno_very_small_att.json",
 
     "wandb_run_name": "_1",
-    "wandb_project_name": "project_name"
+    "wandb_project_name": "ood_project",
+    "is_wandb": false
 }

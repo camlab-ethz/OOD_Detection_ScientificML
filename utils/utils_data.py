@@ -160,6 +160,7 @@ def read_cli_regression(parser):
 
     parser.add_argument("--wandb-run-name", type=str, required=False, default=None, help="Name of the run in wandb")
     parser.add_argument("--wandb-project-name", type=str, default="project_name", help="Name of the wandb project")
+    parser.add_argument("--is_wandb", type=bool, default=True, help="Enable Weights & Biases logging")
 
     return parser\
 
@@ -191,6 +192,7 @@ def read_cli_diffusion(parser):
 
     parser.add_argument("--wandb-run-name", type=str, required=False, default=None, help="Name of the run in wandb")
     parser.add_argument("--wandb-project-name", type=str, default="project_name", help="Name of the wandb project")
+    parser.add_argument("--is_wandb", type=bool, default=True, help="Enable Weights & Biases logging")
 
     return parser
 
@@ -236,7 +238,8 @@ def read_cli_diffusion_gencfd(parser):
 
     parser.add_argument("--wandb-run-name", type=str, required=False, default=None, help="Name of the run in wandb")
     parser.add_argument("--wandb-project-name", type=str, default="project_name", help="Name of the wandb project")
-
+    parser.add_argument("--is_wandb", type=bool, default=True, help="Enable Weights & Biases logging")
+    
     return parser
 
 def read_cli_inference(parser):
